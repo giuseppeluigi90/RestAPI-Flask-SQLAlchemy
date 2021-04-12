@@ -1,4 +1,4 @@
-from models import Account
+from models import Scrapers
 from schema import *
 from flask import Flask, render_template, redirect, url_for, request, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
@@ -13,59 +13,29 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
-@app.route('/account', methods=['GET', 'POST'])
-@app.route('/account/<id>', methods=['GET', 'POST', 'PUT'])
-def get_account(id=None):
-    if request.method == 'POST':
-        name = request.json['name']
-        address = request.json['address']
-        email = request.json['email']
 
-        nueva_account = Account(name, address, email)
-        db.session.add(nueva_account)
+@app.route('/scrapers', methods=['GET', 'POST'])
+@app.route('/scrapers/<id>', methods=['GET', 'POST', 'PUT'])
+def get_scrapers(id=None):
+    if request.method == 'POST':
+        created_at = request.json['created_at']
+        updated_at = request.json['updated_at']
+        objective_id = request.json['objective_id']
+        target = request.json['target']
+        params = request.json['params']
+        structure = request.json['structure']
+        status = request.json['status']
+
+        nuevo_scraper = Scrapers(created_at, updated_at, objective_id, target, params, structure, status)
+        db.session.add(nuevo_scraper)
         db.session.commit()
 
-        return account_schema.jsonify(nueva_account)
+        return scraper_schema.jsonify(nuevo_scraper)
     
     elif request.method == 'GET':
-        all_accounts = Account.query.all()
-        result = accounts_schema.dump(all_accounts)
+        all_scrapers = Scrapers.query.all()
+        result = scrapers_schema.dump(all_scrapers)
         return jsonify(result)
-    
-    elif request.method == 'PUT':
-        account = Account.query.get(id)
-
-        name = request.json['name']
-        address = request.json['address']
-        email = request.json['email']
-
-        account.name = name
-        account.address = address
-        account.email = email
-
-        db.session.commit()
-        return account_schema.jsonify(account)
-
-
-@app.route('/prueba/<id>', methods=['GET'])
-def get_prueba(id):
-    prueba = Prueba.query.get(id)
-    return prueba_schema.jsonify(prueba)
-
-@app.route('/prueba/<id>', methods=['PUT'])
-def update_prueba(id):
-    prueba = Prueba.query.get(id)
-
-    name = request.json['name']
-    address = request.json['address']
-    email = request.json['email']
-
-    prueba.name = name
-    prueba.address = address
-    prueba.email = email
-
-    db.session.commit()
-    return prueba_schema.jsonify(prueba)
 
 
 # Run application

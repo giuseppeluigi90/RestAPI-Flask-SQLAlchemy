@@ -2,9 +2,9 @@ from flask_marshmallow import Marshmallow
 
 ma = Marshmallow()
 
-class AccountSchema(ma.Schema):
+class ScrapersSchema(ma.Schema):
     class Meta:
-        fields = ('name','address','email')
+        fields = ('created_at','updated_at','objective_id','target','params','structure','status')
 
-account_schema = AccountSchema()
-accounts_schema = AccountSchema(many=True)
+scraper_schema = ScrapersSchema()
+scrapers_schema = ScrapersSchema(many=True)
