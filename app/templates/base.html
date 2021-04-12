@@ -12,8 +12,8 @@
         <div class="app__left">
             <nav class="main">
                 <ul class="main__menu">
-                    <li class="main__list main__list--active"><a href="#"><i class="fas fa-home"></i>Inicio</a></li>
-                    <li class="main__list"><a href="#"><i class="fas fa-home"></i>Registros</a></li>
+                    <li class="main__list {% if request.path.startswith('/dashboard')%}main__list--active{% endif %}"><a href="/dashboard"><i class="fas fa-home"></i>Inicio</a></li>
+                    <li class="main__list {% if request.path.startswith('/register')%}main__list--active{% endif %}"><a href="/register"><i class="fas fa-home"></i>Registros</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Objetivos</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Scrapers</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Programación</a></li>

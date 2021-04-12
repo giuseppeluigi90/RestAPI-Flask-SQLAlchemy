@@ -11,4 +11,4 @@ blueprint = Blueprint('register', __name__, url_prefix='/register')
 
 @blueprint.route('/', methods=['GET'])
 def home():
-    return render_template('dashboard/home.html')
+    return render_template('register/home.html')
