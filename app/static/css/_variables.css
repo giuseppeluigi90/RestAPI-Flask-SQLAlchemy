@@ -4,4 +4,5 @@
     --primary: #001A30;
     --secondary: #FF4800;
     --font-primary: 'Roboto', sans-serif;
+    --gap-columns: calc(24px / 2);
 }

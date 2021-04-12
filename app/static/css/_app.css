@@ -10,3 +10,10 @@
     height: 100vh;
     background: var(--primary);
 }
+
+.app__right {
+    width: calc(100% - 380px);
+    float: right;
+    margin-left: 340px;
+    margin-right: 40px;
+}
