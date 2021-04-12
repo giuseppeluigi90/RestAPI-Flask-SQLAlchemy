@@ -1,5 +1,10 @@
+@import url('_reset.css');
 @import url('_variables.css');
 @import url('_layout.css');
-body{
-    background: red;
-}
+@import url('_base.css');
+
+/* Main */
+@import url('_main.css');
+
+/* App */
+@import url('_app.css');

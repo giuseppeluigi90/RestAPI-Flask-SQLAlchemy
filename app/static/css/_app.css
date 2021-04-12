@@ -1,0 +1,12 @@
+.app {
+
+}
+
+.app__left {
+    width: 300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background: var(--primary);
+}
