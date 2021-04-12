@@ -1,0 +1,25 @@
+.table {
+    width: 100%;
+}
+
+.table thead tr th {
+    height: 50px;
+    vertical-align: middle;
+    background: var(--primary);
+    color: #ffffff;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.table thead tr th:first-child {
+    border-radius: 5px 0 0 0;
+}
+
+.table thead tr th:last-child {
+    border-radius: 0 5px 0 0;
+}
+
+.table tbody tr td {
+    height: 50px;
+    vertical-align: middle;
+}
