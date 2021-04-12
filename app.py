@@ -13,6 +13,12 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return "Hello world!"
+    # return render_template('dashboard/home.html')
+
 @app.route('/account', methods=['GET', 'POST'])
 @app.route('/account/<id>', methods=['GET', 'POST', 'PUT'])
 def get_account(id=None):

@@ -2,3 +2,4 @@ sqlalchemy
 psycopg2
 Flask-SQLAlchemy
 flask_marshmallow
+requests==2.23.0
