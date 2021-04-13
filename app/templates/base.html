@@ -20,10 +20,9 @@
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Objetivos</a></li>
                     <li class="main__list {% if request.path.startswith('/scrapers')%}main__list--active{% endif %}"><a href="/scrapers"><i class="fas fa-home"></i>Scrapers</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Programación</a></li>
-                    <li class="main__list"><a href="#"><i class="fas fa-home"></i>Registros</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Facturas</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Pagos</a></li>
-                    <li class="main__list"><a href="#"><i class="fas fa-home"></i>Términos de servicio</a></li>
+                    <li class="main__list {% if request.path.startswith('/terms')%}main__list--active{% endif %}"><a href="/terms"><i class="fas fa-home"></i>Términos de servicio</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,5 +31,7 @@
             {% block content %}{% endblock %}
         </div>
     </div>
+
+    {% block scripts %}{% endblock %}
 </body>
 </html>

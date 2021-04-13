@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card__header spabet">
                 <h2 class="card__title">Scrapers</h2>
-                <button type="button" class="button button__add">Agregar</button>
+                <button type="button" class="button button__add" id="addScraper" onclick="modalScraper('show')">Agregar</button>
             </div>
             <div class="card__body">
                 <table class="table">
@@ -40,7 +40,7 @@
     </div>
 </div>
 
-<!-- <div class="modal">
+<div class="modal" id="modalScraper">
     <div class="modal__content">
         <div class="card">
             <div class="card__header">
@@ -49,8 +49,25 @@
             <div class="card__body">
                 <input type="text" class="input">
             </div>
+            <div class="card__bottom">
+                <button type="button" class="button button__add" id="addScraper" onclick="modalScraper('hide')">Agregar</button>
+            </div>
         </div>
     </div>
-    <div class="modal__black"></div>
-</div> -->
+    <div class="modal__black" onclick="modalScraper('hide')"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        // Add Scrapper
+        const selectorModalScraper = document.getElementById("modalScraper")
+        function modalScraper(data) {
+            if (data == 'show') {
+                selectorModalScraper.classList.add("modal--show");
+            } else {
+                selectorModalScraper.classList.remove("modal--show")
+            }
+        }
+    </script>
 {% endblock %}

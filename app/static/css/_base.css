@@ -2,3 +2,8 @@ body{
     background: #EFF1F5;
     font-family: var(--font-primary);
 }
+
+.terms{
+    padding: 24px;
+    line-height: 26px;
+}
