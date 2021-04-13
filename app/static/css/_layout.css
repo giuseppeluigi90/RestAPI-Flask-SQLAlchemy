@@ -22,6 +22,7 @@
 .col{
     float: left;
     padding: 0 var(--gap-columns);
+    box-sizing: border-box;
 }
 
 .col__2{

@@ -21,9 +21,10 @@
     color: rgba(255, 255, 255, 0.8);
 }
 
-.main__list a:hover, .main__list--active {
+.main__list a:hover, .main__list--active a {
     color: rgba(255, 255, 255, 1);
     background: rgba(0, 0, 0, 0.5);
+    border-left: 4px solid #ffffff;
 }
 .main__list a:hover i, .main__list--active i {
     color: var(--secondary);

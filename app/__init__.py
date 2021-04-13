@@ -13,11 +13,12 @@ def create_app(test_config=None):
         app.config.from_mapping(test_config)
 
     from .views import (
-        api, dashboard, register
+        api, dashboard, register, scrapers
     )
     app.register_blueprint(api.blueprint)
     app.register_blueprint(dashboard.blueprint)
     app.register_blueprint(register.blueprint)
+    app.register_blueprint(scrapers.blueprint)
 
     # Processors
 

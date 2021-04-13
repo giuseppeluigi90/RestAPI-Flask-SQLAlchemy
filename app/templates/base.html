@@ -10,12 +10,15 @@
 <body>
     <div id="app">
         <div class="app__left">
+            <div class="app__left__brand">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+            </div>
             <nav class="main">
                 <ul class="main__menu">
                     <li class="main__list {% if request.path.startswith('/dashboard')%}main__list--active{% endif %}"><a href="/dashboard"><i class="fas fa-home"></i>Inicio</a></li>
                     <li class="main__list {% if request.path.startswith('/register')%}main__list--active{% endif %}"><a href="/register"><i class="fas fa-home"></i>Registros</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Objetivos</a></li>
-                    <li class="main__list"><a href="#"><i class="fas fa-home"></i>Scrapers</a></li>
+                    <li class="main__list {% if request.path.startswith('/scrapers')%}main__list--active{% endif %}"><a href="/scrapers"><i class="fas fa-home"></i>Scrapers</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Programación</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Registros</a></li>
                     <li class="main__list"><a href="#"><i class="fas fa-home"></i>Facturas</a></li>
@@ -25,6 +28,7 @@
             </nav>
         </div>
         <div class="app__right">
+            
             {% block content %}{% endblock %}
         </div>
     </div>
