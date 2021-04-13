@@ -1,34 +1,15 @@
 import flask
-from flask import (
-    Blueprint, current_app, flash, g, redirect, render_template, request,
-    send_file, session, url_for, Response, jsonify
-)
-from urllib.parse import urljoin
+from flask import request, jsonify
 from schema import *
 from models import Scrapers
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+scrapers = flask.Blueprint('scrapers', __name__)
 
 
-blueprint = Blueprint('api', __name__, url_prefix='/api')
-
-
-@blueprint.route('/dashboard', methods=['GET'])
-def dashbossard():
-    return "Hello Dashboard"
-    # return render_template('dashboard/home.html')
-
-@blueprint.route('/register', methods=['GET'])
-def register():
-    return "Hello Registers"
-    # return render_template('dashboard/home.html')
-
-
-
-# Registers
-@blueprint.route('/scrapers', methods=['GET', 'POST'])
+@scrapers.route('/scrapers', methods=['GET', 'POST'])
 def get_scrapers():
     if request.method == 'POST':
         created_at = request.json['created_at']
@@ -51,14 +32,14 @@ def get_scrapers():
         return jsonify(result)
 
 
-@blueprint.route('/scrapers/<id>', methods=['GET'])
+@scrapers.route('/scrapers/<id>', methods=['GET'])
 def get_scraper(id):
     if request.method == 'GET':
         scraper = Scrapers.query.get(id)
         return scraper_schema.jsonify(scraper)
 
 
-@blueprint.route('/scrapers/<id>', methods=['PUT'])
+@scrapers.route('/scrapers/<id>', methods=['PUT'])
 def update_scrapers(id):
     scraper = Scrapers.query.get(id)
 
