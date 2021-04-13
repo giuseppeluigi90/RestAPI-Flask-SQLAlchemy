@@ -16,8 +16,8 @@ class Scrapers(db.Model):
     structure = Column(JSON)
     status = Column(Boolean)
 
-    def __init__(self, create_at, updated_at, objective_id, target, params, structure, status):
-        self.create_at = created_at
+    def __init__(self, created_at, updated_at, objective_id, target, params, structure, status):
+        self.created_at = created_at
         self.updated_at = updated_at
         self.objective_id = objective_id
         self.target = target

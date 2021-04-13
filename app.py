@@ -15,7 +15,6 @@ ma = Marshmallow(app)
 
 
 @app.route('/scrapers', methods=['GET', 'POST'])
-@app.route('/scrapers/<id>', methods=['GET', 'POST', 'PUT'])
 def get_scrapers(id=None):
     if request.method == 'POST':
         created_at = request.json['created_at']
@@ -36,6 +35,8 @@ def get_scrapers(id=None):
         all_scrapers = Scrapers.query.all()
         result = scrapers_schema.dump(all_scrapers)
         return jsonify(result)
+
+# @app.route('/scrapers/<id>', methods=['GET', 'POST', 'PUT'])
 
 
 # Run application
