@@ -1,6 +1,8 @@
 sqlalchemy
 psycopg2
+psycopg2-binary
 Flask-SQLAlchemy
 flask_marshmallow
 requests==2.23.0
 Jinja2==2.11.2
+python3-flask
